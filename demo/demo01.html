@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>demo</title>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <div id="app">
+    <ul>
+      <li>a: {{obj.a}}</li>
+    </ul>
+    <ul>
+      <li>b: {{obj.b}}</li>
+    </ul>
+    <ul>
+      <li>长度：{{arr.length}}</li>
+    </ul>
+  </div>
+<script>
+  console.log(Vue.version); // 2.6.13
+  var vm = new Vue({
+    el: '#app',
+    data() {
+      return {
+        obj: {
+          a: 1
+        },
+        arr: []
+      }
+    },
+    watch: {
+      "obj.a"() {
+        console.log("change a !")
+      },
+      "obj.b": function(){
+        console.log("change b !")
+      }
+    }
+  });
+  vm.obj.a = 2;
+  // vm.obj.b = 5;  // 不支持新增属性
+  // 初始化未绑定，方法一
+  vm.$set(vm.obj, "b", 3);  // 不支持设置vm.$data
+  // 方法二
+  // Vue.set(vm.obj, "b", 4);
+  // vm.arr.push(3);
+  vm.arr[5] = 5;
+</script>
+</body>
+</html>

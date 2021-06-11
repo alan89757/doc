@@ -1,5 +1,8 @@
-# doc
-分享文档
+# eslint
+
+
+
+
 
 
 ### 前端异常处理
@@ -14,5 +17,3 @@ https://www.webfunny.cn/blog/post/33
 https://cdc.tencent.com/2018/09/13/frontend-exception-monitor-research/
 
 
-### 团队 Leader，怎么制定前端协作规范?
-https://juejin.cn/post/6844903897610321934
