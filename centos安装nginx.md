@@ -21,3 +21,10 @@ https://blog.csdn.net/weixin_42737761/article/details/113487715
 ```bash
   firewall-cmd --zone=pulic --add-port=80/tcp --permanent
 ```
+
+## 安装docker-desktop docker-compose
+https://www.docker.com/products/docker-desktop
+
+## 了解docker
+https://juejin.cn/post/6844903591375814669
+
