@@ -35,7 +35,7 @@ GET/POST/PUT/PATCH/DELETE/HEAD/OPTIONS等等
 
 - 常见问题：
   - GET 方法参数写法是固定的吗？
-<!-- 不固定，流行写法：http://www.example.com/user/name/chengqm/age/22 -->
+不固定，流行写法：http://www.example.com/user/name/chengqm/age/22
   - POST 方法比 GET 方法安全？
 <!-- 都不安全，https才是安全传输 -->
   - GET 方法的长度限制是怎么回事？谁限制的？
@@ -128,7 +128,7 @@ Server: Tengine  // nginx升级版
   - （一）浏览器兼容对比  
     （1）HTTP1.0，HTTP1.1浏览器基本都支持
 
-  <img src="./http1_protocol.png" width="80%">
+  <img src="./http1_protocol.png" width="50%">
 
     （2）HTTP2.0  
 
@@ -158,23 +158,29 @@ html文件
 
 1. 缓存的命中和未命中
    - 缓存命中
-    <img src="./cache_hit.png" width="80%">  
+    <img src="./cache_hit.png" width="60%">  
 
    - 缓存未命中
-    <img src="./cache_nohit.png" width="80%">
+    <img src="./cache_nohit.png" width="60%">
 2. 强缓存
    ```html
-   Cache-Control: max-age=30  // 最大一年31536000， 常用于不会经常变化的文本（如CDN）
-   Expires: Tue, 06 Jul 2022 05:49:31 GMT
+    Cache-Control: max-age=30  // 最大一年31536000， 常用于不会经常变化的文本（如CDN）
+    Expires: Tue, 06 Jul 2022 05:49:31 GMT
+    Cache-Control: no-cache  // 每次请求都会去服务器确认是否更新
+    Cache-Control: no-store  // 不使用任何缓存
+    Cache-Control: max-age=60   // 60s后会去服务器确认是否更新
+    Cache-Control: must-revalidate // 必须去验证服务器验证，验证失败返回504
    ```
 3. 协商缓存
   ```html
-    Cache-Control: no-cache  // 每次请求都会去服务器确认是否更新
-    Cache-Control: no-story  // 不使用任何缓存
-    Cache-Control: max-age: 60   // 60s后会去服务器确认是否更新
-    Cache-Control: must-revalidate // 必须去验证服务器验证，验证失败返回504
+    // response Header
+    ETag: W/"60701602-1b48"   // 资源标识
+    Last-Modified: Fri, 09 Apr 2021 08:53:22 GMT //最后更新时间（格林威治时间）
+    //  request Header
+    If-Modified-Since：Fri, 09 Apr 2021 08:53:22 GMT  // 本地资源未修改返回 304（比较时间）
+    If-None-Match：	W/"60701602-1b48"   // 本地资源未修改返回 304（比较标记）
   ```
-  <img src="./consult_cache.png" width="80%">
+  <img src="./consult_cache.png" width="60%">
 
 - 协商缓存如何验证呢？
 
@@ -224,7 +230,7 @@ RSA（非对称加密算法）：双方必须协商一对密钥，一个私钥�
 
 ### plan C 非对称密钥+对称密钥
 - 中间人攻击
-- 
+
 ```text
 使用对称密钥的好处是速度比较快，使用非对称密钥的好处是可以使得传输的内容不能被破解，
 因为就算你拦截到了数据，但是没有 Bill 的私钥，也是不能破解内容的。就比如说你抢了一个保险柜，
@@ -250,6 +256,8 @@ RSA（非对称加密算法）：双方必须协商一对密钥，一个私钥�
  window键 + R打开cmd， 输入certlm.msc，如下图：
 ```
 <img src="./certificate004.png" width="66%">
+
+远程桌面和VPN证书
 
 ```html
 参考文档如下：
