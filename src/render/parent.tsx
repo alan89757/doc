@@ -8,18 +8,11 @@ function Parent() {
   let [num, setNum] = useState(0);
   let [text, setText] = useState(0);
 
-  const handleNum = useCallback(()=> {
-    setNum(num + 1);
-  }, [num]);
-
-  const handleText = useCallback(()=> {
-    setText(text + 1);
-  }, [text]);
 
   return (
     <div>
-      <Child1 num={num} handleClick={handleNum} />
-      <Child2 text={text} handleClick={handleText} />
+      <Child1 num={num} handleClick={setNum} />
+      <Child2 text={text} handleClick={setText} />
     </div>
   );
 }
