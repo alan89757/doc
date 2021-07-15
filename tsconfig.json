@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "rootDirs": ["./types"],
+    "declaration": true,
+    "declarationDir": "./types",
+    "sourceMap": true,
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "baseUrl": "",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "moduleResolution":"Node",
+    "target": "ES2017",
+    "module": "esNext",
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "classnameTransform": "dashes",
+          "customMatcher": "\\.m\\.css$",
+          "customRenderer": "./myRenderer.js",
+          "dotenvOptions": {},
+          "postCssOptions": {},
+          "rendererOptions": {}
+        }
+      }
+    ]
+  },
+  "include": [
+    "./src",
+    "./types"
+  ]
+}

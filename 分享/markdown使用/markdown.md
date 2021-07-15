@@ -1,6 +1,6 @@
 
+# 学习markdown，这篇文章就够了...
 [TOC]  
-# 1. 学习markdown，这篇文章就够了...
 ```text
 官网：https://daringfireball.net/projects/markdown/
 ```
@@ -147,3 +147,61 @@ hel~l~o`world`
 | 1    |   2    |     3 |
 | 10   |   20   |    30 |
 
+
+
+
+```javascript {.line-numbers highlight=[2-5]}
+function add(x, y) {
+  return x + y
+}
+function minus(x, y) {
+  return x - y
+}
+```
+
+- [x] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported
+- [x] list syntax required (any unordered or ordered list supported)
+- [x] this is a complete item
+- [ ] this is an incomplete item
+
+
+First Header | Second Header
+------------ | -------------
+Content from cell 1 | Content from cell 2
+Content in the first column | Content in the second column
+
+Content [^1]
+
+
+ID|姓名|年龄
+---|---|---
+10| 梁荣军 | 26
+11 | 梁晓明 | 27
+
+
+:smile:
+:fa-car:
+
+30^th^
+
+H~2~O
+
+
+[^1]: Hi! This is a footnote
+
+
+
+
+_[HTML]: Hyper Text Markup Language
+_[W3C]: World Wide Web Consortium
+The HTML specification
+is maintained by the W3C.
+
+
+
+
+==marked==
+
+{++ 
+
+ ++}
